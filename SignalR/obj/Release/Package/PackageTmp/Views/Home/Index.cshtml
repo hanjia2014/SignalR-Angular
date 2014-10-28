@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<script type="text/javascript">
+    $(function () {
+        // Proxy created on the fly
+        var chat = $.connection.chatHub;
+
+        // Get the user name and store it to prepend to messages.
+        $('#displayname').val(prompt('Enter your name:', ''));
+
+        // Declare a function on the chat hub so the server can invoke it
+        chat.client.UpdateProduct = function (name, message) {
+            var encodedName = $('<div />').text(name).html();
+            var encodedMsg = $('<div />').text(message).html();
+            $('#messages').append('<li>' + encodedName +
+			    ':  ' + encodedMsg + '</li>');
+        };
+
+        // Start the connection
+        $.connection.hub.start().done(function () {
+            $("#send").click(function () {
+                // Call the chat method on the server
+                chat.server.sendMsg($('#displayname').val(), $('#msg').val());
+            });
+        });
+    });
+</script>
+
+<div>
+    <input type="text" id="msg" />
+    <input type="button" id="send" value="Send" />
+    <input type="hidden" id="displayname" />
+    <ul id="messages"></ul>
+</div>
