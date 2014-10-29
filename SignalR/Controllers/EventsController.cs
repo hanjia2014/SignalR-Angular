@@ -28,7 +28,7 @@ namespace SignalR.Controllers
         }
 
         // GET: api/Event/5
-        public Event Get(int id)
+        public Event Get(Guid id)
         {
             return eventRepository.GetByID(id);
         }
@@ -41,14 +41,14 @@ namespace SignalR.Controllers
         }
 
         // PUT: api/Event/5
-        public void Put(int id, Event value)
+        public void Put(Guid id, Event value)
         {
             eventRepository.Update(value);
             eventRepository.Save();
         }
 
         // DELETE: api/Event/5
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
             eventRepository.Delete(id);
             eventRepository.Save();

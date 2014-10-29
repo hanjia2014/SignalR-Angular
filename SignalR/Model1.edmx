@@ -6,13 +6,27 @@
     <edmx:StorageModels>
     <Schema Namespace="BookingModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="BookingModelStoreContainer">
-          <EntitySet Name="Event" EntityType="BookingModel.Store.Event" store:Type="Tables" />
+          <EntitySet Name="Event" EntityType="BookingModel.Store.Event" store:Type="Tables" store:Name="Event">
+            <DefiningQuery>SELECT 
+            [Event].[Id] AS [Id], 
+            [Event].[Start] AS [Start], 
+            [Event].[End] AS [End], 
+            [Event].[Url] AS [Url], 
+            [Event].[Title] AS [Title], 
+            [Event].[AllDay] AS [AllDay]
+            FROM [Event] AS [Event]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
+        <!--Errors Found During Generation:
+            warning 6002: The table/view 'Event' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+            -->
         <EntityType Name="Event">
           <Key>
             <PropertyRef Name="Id" />
+            
+            
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Start" Type="datetime" Nullable="false" />
           <Property Name="End" Type="datetime" />
           <Property Name="Url" Type="nvarchar" />
@@ -30,7 +44,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Guid" Nullable="false" />
           <Property Name="Start" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="End" Type="DateTime" Precision="3" />
           <Property Name="Url" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />

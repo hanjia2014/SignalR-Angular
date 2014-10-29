@@ -14,7 +14,7 @@ namespace SignalR
     
     public partial class Event
     {
-        public int Id { get; set; }
+        public System.Guid Id { get; set; }
         public System.DateTime Start { get; set; }
         public Nullable<System.DateTime> End { get; set; }
         public string Url { get; set; }

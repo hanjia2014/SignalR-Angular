@@ -139,7 +139,9 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <None Include="Properties\PublishProfiles\hanjia.pubxml" />
+    <None Include="Properties\PublishProfiles\hanjiasignalr - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\hanjiasignalr - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\hanjiasignalr - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\hanjiasignalr - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\angular-prompt.js" />

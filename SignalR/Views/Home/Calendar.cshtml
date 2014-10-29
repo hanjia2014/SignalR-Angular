@@ -72,7 +72,7 @@
             $.connection.hub.start().done(function () {
                 $("#add").click(function () {
                     // Call the chat method on the server
-                    var data = { id: $scope.events.length, title: $scope.eventTitle == null || $scope.eventTitle == '' ? '[empty]' : $scope.eventTitle, start: getDateTime($scope.eventStart), end: getDateTime($scope.eventEnd), currentTimezone: 'local' };
+                    var data = { title: $scope.eventTitle == null || $scope.eventTitle == '' ? '[empty]' : $scope.eventTitle, start: getDateTime($scope.eventStart), end: getDateTime($scope.eventEnd), currentTimezone: 'local' };
                     $http.post('http://localhost:60567/api/events', data);
                     chat.server.addEvent(data);
                 });
