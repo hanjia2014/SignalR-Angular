@@ -9,9 +9,9 @@ namespace SignalR.Entities
     public interface IRepository<T> : IDisposable
     {
         IEnumerable<T> Get();
-        T GetByID(Guid id);
+        T GetByID(int id);
         void Insert(T item);
-        void Delete(Guid itemId);
+        void Delete(int itemId);
         void Update(T item);
         void Save();
     }

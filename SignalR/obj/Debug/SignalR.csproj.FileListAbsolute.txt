@@ -185,5 +185,6 @@ C:\SignalR\SignalR\bin\Newtonsoft.Json.xml
 C:\SignalR\SignalR\bin\System.Net.Http.Formatting.xml
 C:\SignalR\SignalR\bin\System.Web.Http.xml
 C:\SignalR\SignalR\bin\System.Web.Http.WebHost.xml
+C:\SignalR\SignalR\obj\Debug\SignalR.csprojResolveAssemblyReference.cache
 C:\SignalR\SignalR\obj\Debug\SignalR.dll
 C:\SignalR\SignalR\obj\Debug\SignalR.pdb

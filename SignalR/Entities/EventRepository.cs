@@ -19,19 +19,18 @@ namespace SignalR.Entities
             return context.Events.ToList();
         }
 
-        public Event GetByID(Guid id)
+        public Event GetByID(int id)
         {
             return context.Events.Find(id);
         }
 
         public void Insert(Event item)
         {
-            if (item.Id == Guid.Empty)
-                item.Id = Guid.NewGuid();
+            item.Id = NextId;
             context.Events.Add(item);
         }
 
-        public void Delete(Guid itemId)
+        public void Delete(int itemId)
         {
             var item = context.Events.Find(itemId);
             context.Events.Remove(item);
@@ -64,6 +63,14 @@ namespace SignalR.Entities
             }
 
             disposed = true;
+        }
+
+        private int NextId
+        {
+            get
+            {
+                return context.Events == null ? 1: context.Events.Count() + 1;
+            }
         }
     }
 }

@@ -4,35 +4,21 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="BookingModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityContainer Name="BookingModelStoreContainer">
-          <EntitySet Name="Event" EntityType="BookingModel.Store.Event" store:Type="Tables" store:Name="Event">
-            <DefiningQuery>SELECT 
-            [Event].[Id] AS [Id], 
-            [Event].[Start] AS [Start], 
-            [Event].[End] AS [End], 
-            [Event].[Url] AS [Url], 
-            [Event].[Title] AS [Title], 
-            [Event].[AllDay] AS [AllDay]
-            FROM [Event] AS [Event]</DefiningQuery>
-          </EntitySet>
-        </EntityContainer>
-        <!--Errors Found During Generation:
-            warning 6002: The table/view 'Event' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-            -->
+    <Schema Namespace="BookingModel.Store" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Event">
           <Key>
             <PropertyRef Name="Id" />
-            
-            
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Start" Type="datetime" Nullable="false" />
           <Property Name="End" Type="datetime" />
-          <Property Name="Url" Type="nvarchar" />
-          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="400" />
+          <Property Name="Url" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Title" Type="nvarchar" MaxLength="400" Nullable="false" />
           <Property Name="AllDay" Type="bit" />
+          <Property Name="Id" Type="int" Nullable="false" />
         </EntityType>
+        <EntityContainer Name="BookingModelStoreContainer">
+          <EntitySet Name="Event" EntityType="Self.Event" store:Type="Tables" />
+        </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -44,7 +30,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Start" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="End" Type="DateTime" Precision="3" />
           <Property Name="Url" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
@@ -86,6 +72,7 @@
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

@@ -7,7 +7,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="Start" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="End" Type="DateTime" Precision="3" />
     <Property Name="Url" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
