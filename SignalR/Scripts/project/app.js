@@ -1,0 +1,1 @@
+﻿angular.module('calendarDemoApp', ['ui.calendar', 'ui.bootstrap']);
