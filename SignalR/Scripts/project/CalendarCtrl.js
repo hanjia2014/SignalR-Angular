@@ -43,13 +43,6 @@
         });
     });
 
-    $scope.changeTo = 'Hungarian';
-    /* event source that pulls from google.com */
-    $scope.eventSource = {
-        url: "http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic",
-        className: 'gcal-event',           // an option!
-        currentTimezone: 'local' // an option!
-    };
     /* event source that contains custom events on the scope */
     $scope.events = [];
     CalendarService.getEvents().success(function (data) {
@@ -68,26 +61,6 @@
     }).
     error(function (data, status, headers, config) {
     });
-
-
-    /* event source that calls a function on every view switch */
-    $scope.eventsF = function (start, end, callback) {
-        var s = new Date(start).getTime() / 1000;
-        var e = new Date(end).getTime() / 1000;
-        var m = new Date(start).getMonth();
-        //var events = [{title: 'Feed Me ' + m,start: s + (50000),end: s + (100000),allDay: false, className: ['customFeed']}];
-        callback(events);
-    };
-
-    $scope.calEventsExt = {
-        color: '#f00',
-        textColor: 'yellow',
-        events: [
-           { type: 'party', title: 'Lunch', start: new Date(y, m, d, 12, 0), end: new Date(y, m, d, 14, 0), allDay: false },
-           { type: 'party', title: 'Lunch 2', start: new Date(y, m, d, 12, 0), end: new Date(y, m, d, 14, 0), allDay: false },
-           { type: 'party', title: 'Click for Google', start: new Date(y, m, 28), end: new Date(y, m, 29), url: 'http://google.com/' }
-        ]
-    };
     /* alert on eventClick */
     $scope.alertOnEventClick = function (event, allDay, jsEvent, view) {
         $scope.alertMessage = (event.title + ' was clicked ');
