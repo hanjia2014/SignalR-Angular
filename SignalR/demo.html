@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/angular.js"></script>
+</head>
+<body data-ng-app data-ng-controller="myCtrl">
+    {{1+2}}
+    <input type="text" data-ng-model="message" />
+    the message value is: <span style="color:orangered">{{message}}</span>
+    <script>
+        function myCtrl($scope) {
+            $scope.message = "Hello world";
+        }
+    </script>
+</body>
+</html>

@@ -131,6 +131,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\calendarDemo.css" />
     <Content Include="Content\fullcalendar.css" />
+    <Content Include="demo.html" />
     <Content Include="img\glyphicons-halflings.png" />
     <Content Include="Global.asax" />
     <EntityDeploy Include="Model1.edmx">
