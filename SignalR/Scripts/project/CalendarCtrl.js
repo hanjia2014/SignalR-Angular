@@ -1,4 +1,4 @@
-﻿function CalendarCtrl($scope, $http, $compile) {
+﻿function CalendarCtrl($scope, $http, $compile, CalendarService) {
     var date = new Date();
     var d = date.getDate();
     var m = date.getMonth();
@@ -37,8 +37,9 @@
         $("#add").click(function () {
             // Call the chat method on the server
             var data = { title: $scope.eventTitle == null || $scope.eventTitle == '' ? '[empty]' : $scope.eventTitle, start: getDateTime($scope.eventStart), end: getDateTime($scope.eventEnd), currentTimezone: 'local' };
-            $http.post('http://localhost:60567/api/events', data);
-            chat.server.addEvent(data);
+            CalendarService.addEvent(data).success(function () {
+                chat.server.addEvent(data);
+            });
         });
     });
 
@@ -51,7 +52,7 @@
     };
     /* event source that contains custom events on the scope */
     $scope.events = [];
-    $http.get('http://localhost:60567/api/events').success(function (data) {
+    CalendarService.getEvents().success(function (data) {
         angular.forEach(data, function (event) {
             var title = event.Title;
             var start = event.Start;
@@ -115,8 +116,9 @@
 
     /* remove event */
     $scope.remove = function (index, event) {
-        $http.delete('http://localhost:60567/api/events', { params: { id: event.id } });
-        chat.server.removeEvent(index);
+        CalendarService.deleteEvent(event.id).success(function () {
+            chat.server.removeEvent(index);
+        });
     };
     /* Change View */
     $scope.changeView = function (view, calendar) {
