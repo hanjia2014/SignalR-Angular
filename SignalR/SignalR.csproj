@@ -212,6 +212,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\EventService.cs" />
     <Compile Include="Models\MessageHub.cs" />
     <Compile Include="Models\Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

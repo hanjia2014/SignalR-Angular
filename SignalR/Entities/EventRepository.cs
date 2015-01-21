@@ -9,6 +9,12 @@ namespace SignalR.Entities
     public class EventRepository : IRepository<Event>, IDisposable
     {
         private BookingEntities context;
+
+        public EventRepository()
+        {
+            context = new BookingEntities();
+        }
+
         public EventRepository(BookingEntities context)
         {
             this.context = context;

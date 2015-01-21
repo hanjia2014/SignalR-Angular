@@ -11,6 +11,7 @@
     chat.client.UpdateEvents = function (event) {
         $scope.$apply(function () {
             $scope.events.push({
+                id: $scope.events.length - 1,
                 title: event.Title,
                 start: new Date(event.Start),
                 end: new Date(event.End)

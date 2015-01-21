@@ -7,7 +7,7 @@
             return $http.post('http://localhost:60567/api/events', event);
         },
         deleteEvent: function (eventId) {
-            return $http.delete('http://localhost:60567/api/events', { params: { id: eventId } });
+            return $http.delete('/home/DeleteEvent', { params: { id: eventId } });
         },
     });
 });
