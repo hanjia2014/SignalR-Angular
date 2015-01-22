@@ -9,6 +9,8 @@
     <WebStackScaffolding_ViewDialogWidth>600</WebStackScaffolding_ViewDialogWidth>
     <WebStackScaffolding_ControllerDialogWidth>600</WebStackScaffolding_ControllerDialogWidth>
     <NameOfLastUsedPublishProfile>hanjiasignalr - Web Deploy %282%29</NameOfLastUsedPublishProfile>
+    <WebStackScaffolding_DbContextTypeFullName>SignalR.BookingEntities</WebStackScaffolding_DbContextTypeFullName>
+    <WebStackScaffolding_IsViewGenerationSelected>False</WebStackScaffolding_IsViewGenerationSelected>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

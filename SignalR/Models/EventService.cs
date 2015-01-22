@@ -19,15 +19,22 @@ namespace SignalR.Controllers
             eventRepository = repository;
         }
 
+        public int AddEvent(Event item)
+        {
+            item.Id = eventRepository.Get().Count() + 1;
+            eventRepository.Insert(item);
+
+            return item.Id;
+        }
+
         public bool DeleteEvent(int id)
         {
             try
             {
                 eventRepository.Delete(id);
-                eventRepository.Save();
                 return true;
             }
-            catch (Exception ex)
+            catch
             {
                 return false;
             }

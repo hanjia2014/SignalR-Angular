@@ -230,9 +230,6 @@ C:\Projects\SignalR\SignalR\bin\System.Web.Mvc.xml
 C:\Projects\SignalR\SignalR\bin\System.Web.Http.WebHost.xml
 C:\Projects\SignalR\SignalR\obj\Debug\SignalR.dll
 C:\Projects\SignalR\SignalR\obj\Debug\SignalR.pdb
-C:\Users\hanj\Desktop\SignalR\SignalR\bin\SignalR.dll.config
-C:\Users\hanj\Desktop\SignalR\SignalR\bin\SignalR.dll
-C:\Users\hanj\Desktop\SignalR\SignalR\bin\SignalR.pdb
 C:\Users\hanj\Desktop\SignalR\SignalR\bin\EntityFramework.dll
 C:\Users\hanj\Desktop\SignalR\SignalR\bin\Microsoft.AspNet.SignalR.Core.dll
 C:\Users\hanj\Desktop\SignalR\SignalR\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
@@ -272,3 +269,6 @@ C:\Users\hanj\Desktop\SignalR\SignalR\bin\System.Web.Http.WebHost.xml
 C:\Users\hanj\Desktop\SignalR\SignalR\obj\Debug\SignalR.csprojResolveAssemblyReference.cache
 C:\Users\hanj\Desktop\SignalR\SignalR\obj\Debug\SignalR.dll
 C:\Users\hanj\Desktop\SignalR\SignalR\obj\Debug\SignalR.pdb
+C:\Users\hanj\Desktop\SignalR\SignalR\bin\SignalR.dll.config
+C:\Users\hanj\Desktop\SignalR\SignalR\bin\SignalR.dll
+C:\Users\hanj\Desktop\SignalR\SignalR\bin\SignalR.pdb

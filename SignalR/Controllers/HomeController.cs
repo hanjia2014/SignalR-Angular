@@ -26,6 +26,12 @@ namespace SignalR.Controllers
             return View();
         }
 
+        public JsonResult AddEvent(Event item)
+        {
+            var id = _eventService.AddEvent(item);
+            return Json(id, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpDelete]
         public JsonResult DeleteEvent(int id)
         {

@@ -11,7 +11,7 @@
     chat.client.UpdateEvents = function (event) {
         $scope.$apply(function () {
             $scope.events.push({
-                id: $scope.events.length - 1,
+                id: event.Id,
                 title: event.Title,
                 start: new Date(event.Start),
                 end: new Date(event.End)
@@ -37,8 +37,9 @@
     $.connection.hub.start().done(function () {
         $("#add").click(function () {
             // Call the chat method on the server
-            var data = { title: $scope.eventTitle == null || $scope.eventTitle == '' ? '[empty]' : $scope.eventTitle, start: getDateTime($scope.eventStart), end: getDateTime($scope.eventEnd), currentTimezone: 'local' };
-            CalendarService.addEvent(data).success(function () {
+            var data = { title: $scope.eventTitle == null || $scope.eventTitle == '' ? '[empty]' : $scope.eventTitle, start: $scope.eventStart, end: $scope.eventEnd, currentTimezone: 'local' };
+            CalendarService.addEvent(data).success(function (id) {
+                data.Id = id;
                 chat.server.addEvent(data);
             });
         });

@@ -34,12 +34,14 @@ namespace SignalR.Entities
         {
             item.Id = NextId;
             context.Events.Add(item);
+            context.SaveChanges();
         }
 
         public void Delete(int itemId)
         {
             var item = context.Events.Find(itemId);
             context.Events.Remove(item);
+            context.SaveChanges();
         }
 
         public void Update(Event item)
