@@ -77,7 +77,7 @@ namespace SignalR.Entities
         {
             get
             {
-                return context.Events == null ? 1: context.Events.Count() + 1;
+                return context.Events == null ? 1 : context.Events.ToList().Max(e => e.Id) + 1;
             }
         }
     }
