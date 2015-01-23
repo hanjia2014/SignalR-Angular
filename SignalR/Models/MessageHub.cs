@@ -1,12 +1,8 @@
 ﻿using Microsoft.AspNet.SignalR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace SignalR.Models
 {
-    public class ChatHub : Hub
+    public class EventHub : Hub
     {
         public void SendMsg(string name, string message)
         {

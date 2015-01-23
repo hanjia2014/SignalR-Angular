@@ -5,10 +5,10 @@
     var y = date.getFullYear();
 
     // Proxy created on the fly
-    var chat = $.connection.chatHub;
+    var hub = $.connection.eventHub;
 
     // Declare a function on the chat hub so the server can invoke it
-    chat.client.UpdateEvents = function (event) {
+    hub.client.UpdateEvents = function (event) {
         $scope.$apply(function () {
             $scope.events.push({
                 id: event.Id,
@@ -27,7 +27,7 @@
         return value;
     };
 
-    chat.client.RemoveEvent = function (index) {
+    hub.client.RemoveEvent = function (index) {
         $scope.$apply(function () {
             $scope.events.splice(index, 1);
         });
@@ -40,7 +40,7 @@
             var data = { title: $scope.eventTitle == null || $scope.eventTitle == '' ? '[empty]' : $scope.eventTitle, start: $scope.eventStart, end: $scope.eventEnd, currentTimezone: 'local' };
             CalendarService.addEvent(data).success(function (id) {
                 data.Id = id;
-                chat.server.addEvent(data);
+                hub.server.addEvent(data);
             });
         });
     });
@@ -92,7 +92,7 @@
     /* remove event */
     $scope.remove = function (index, event) {
         CalendarService.deleteEvent(event.id).success(function () {
-            chat.server.removeEvent(index);
+            hub.server.removeEvent(index);
         });
     };
     /* Change View */
