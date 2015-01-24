@@ -8,9 +8,25 @@
     {{1+2}}
     <input type="text" data-ng-model="message" />
     the message value is: <span style="color:orangered">{{message}}</span>
+    <br />
+    <label for="place">Place: </label>
+    <input id="place" data-ng-model="place" type="text" />
+    <div data-ng-click="getWeather()">Get Weather</div>
+    <div data-ng-repeat="item in list">
+        Weather: {{item.weather[0].description}}
+    </div>
+
     <script>
-        function myCtrl($scope) {
+        function myCtrl($scope, $http) {
             $scope.message = "Hello world";
+            //http://openweathermap.org/current
+            $scope.getWeather = function () {
+                $http.get("http://api.openweathermap.org/data/2.5/forecast/daily?q=" + $scope.place).success(function (data) {
+                    $scope.list = data.list;
+                }).error(function (data) {
+
+                });
+            }
         }
     </script>
 </body>
