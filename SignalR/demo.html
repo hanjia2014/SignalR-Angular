@@ -3,6 +3,15 @@
 <head>
     <title></title>
     <script src="Scripts/angular.js"></script>
+    <style>
+        .orange{
+            background-color : orange;
+        }
+
+        .green{
+            background-color : lightgreen;
+        }
+    </style>
 </head>
 <body data-ng-app data-ng-controller="myCtrl">
     {{1+2}}
@@ -11,7 +20,8 @@
     <br />
     <label for="place">Place: </label>
     <input id="place" data-ng-model="place" type="text" />
-    <div data-ng-click="getWeather()">Get Weather</div>
+    <div data-ng-click="getWeather()" style="cursor: pointer" data-ng-class="place == null || place == '' ? 'orange' : 'green'">Get Weather for: {{place}}</div>
+    <br />
     <div data-ng-repeat="item in list">
         Weather: {{item.weather[0].description}}
     </div>
