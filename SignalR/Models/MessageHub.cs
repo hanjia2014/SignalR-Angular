@@ -12,6 +12,7 @@ namespace SignalR.Models
         public void AddEvent(Event aEvent)
         {
             Clients.All.UpdateEvents(aEvent);
+            Clients.Caller.UpdateEventsDone();
         }
 
         public void RemoveEvent(int index)

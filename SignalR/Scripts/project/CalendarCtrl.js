@@ -19,6 +19,10 @@
         });
     };
 
+    hub.client.UpdateEventsDone = function() {
+        $scope.updateMessage = "An event has been created";
+    }
+
     function getDateTime(dateValue) {
         var value = '\/Date(0)\/';
         if (dateValue) {
