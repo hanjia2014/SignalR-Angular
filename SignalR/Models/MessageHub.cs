@@ -6,13 +6,15 @@ namespace SignalR.Models
     {
         public void SendMsg(string name, string message)
         {
-            Clients.All.UpdateProduct(name, message);
+            //push content to connected clients
+            Clients.All.UpdateMessage(name, message);
         }
 
         public void AddEvent(Event aEvent)
         {
             Clients.All.UpdateEvents(aEvent);
-            Clients.Caller.UpdateEventsDone();
+            //send to specific client : 'all clients except the caller'
+            Clients.Others.UpdateEventsDone();
         }
 
         public void RemoveEvent(int index)

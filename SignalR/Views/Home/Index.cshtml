@@ -14,7 +14,7 @@
         $('#displayname').val(prompt('Enter your name:', ''));
 
         // Declare a function on the chat hub so the server can invoke it
-        chat.client.UpdateProduct = function (name, message) {
+        chat.client.UpdateMessage = function (name, message) {
             var encodedName = $('<div />').text(name).html();
             var encodedMsg = $('<div />').text(message).html();
             $('#messages').append('<li>' + encodedName +
